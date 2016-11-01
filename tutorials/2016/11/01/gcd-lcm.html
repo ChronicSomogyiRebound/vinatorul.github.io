@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Алгоритм Евклида нахождения НОД, НОК</title>
-  <meta name="description" content="">
+  <meta name="description" content="Пусть даны два целых числа  и .Не нарушая общности, положим, что  и , в противном случае заменяем отрицательное число на обратное.">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://kuvaev.me/tutorials/2016/11/01/gcd-lcm.html">
@@ -64,7 +64,85 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <script type="math/tex; mode=display">a^2 + b^2 = c^2</script>
+    <p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Не нарушая общности, положим, что <script type="math/tex">x > 0</script> и <script type="math/tex">y > 0</script>, в противном случае заменяем отрицательное число на обратное.</p>
+
+<p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
+Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">g \mid k</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.</p>
+
+<h2 id="section">Алгоритм Евклида для целых чисел</h2>
+
+<p>Можно предположить, что <script type="math/tex">x > y</script>, в противном случае просто поменяем <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Тогда <script type="math/tex">x</script> можно поделить с остатком на <script type="math/tex">y</script>:</p>
+
+<script type="math/tex; mode=display">x = y\cdot q_0 + r_1,</script>
+
+<p><script type="math/tex">q_0</script> называют неполным частным, а <script type="math/tex">r_1</script> - остатком от деления, причём <script type="math/tex">% <![CDATA[
+0 \leq r_1 < y %]]></script>.
+Далее поделим с остатком <script type="math/tex">y</script> на <script type="math/tex">r_1</script>:</p>
+
+<script type="math/tex; mode=display">y = r_1\cdot q_1 + r_2,</script>
+
+<p>продолжая так далее на некотором шаге <script type="math/tex">n</script> остаток <script type="math/tex">r_n</script> окажется равным нулю, таким образом получаем последовательность:</p>
+
+<script type="math/tex; mode=display">x > y > r_1 > r_2 > \dots > r_{n-1} > 0.</script>
+
+<p>Тогда <script type="math/tex">НОД(x, y)</script> - наибольший общий делитель <script type="math/tex">x</script> и <script type="math/tex">y</script> будет равен <script type="math/tex">r_{n-1}</script>.</p>
+
+<p>Формально алгоритм будет иметь вид:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation*}
+НОД(x, y) = 
+ \begin{cases}
+   x, &y = 0\\
+   НОД(y, x\pmod{y}), &y > 0
+ \end{cases}
+\end{equation*} %]]></script>
+
+<h3 id="section-1">Корректность</h3>
+
+<p>Пусть <script type="math/tex">x = y\cdot q + r</script>, тогда <script type="math/tex">НОД(x, y) = НОД(y, r)</script>.</p>
+
+<p><script type="math/tex">НОД(r, 0) = r</script>, <script type="math/tex">\forall r > 0</script></p>
+
+<h3 id="section-2">Реализация</h3>
+
+<h4 id="section-3">Рекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="section-4">Нерекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">r2</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">r2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">r1</span> <span class="o">%=</span> <span class="n">r2</span><span class="p">;</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">r1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="section-5">НОК</h2>
+
+<p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
+
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">m \mid n</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
+
+<p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
+
+<script type="math/tex; mode=display">НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}</script>
+
+<h3 id="section-6">Реализация</h3>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="err">\</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
 
   </div>
 
