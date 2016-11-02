@@ -2,127 +2,383 @@
 <html>
 
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>kuvaev.me</title>
-  <meta name="description" content="That's something.
-">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sci blog jekyll theme">
+    <meta name="author" content="AIR RAYA Group">
+    <link href='/img/favicon.ico' type='image/icon' rel='shortcut icon'/>
 
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://kuvaev.me/">
-  <link rel="alternate" type="application/rss+xml" title="kuvaev.me" href="http://kuvaev.me/feed.xml">
+    <title>Sci blog | Jekyll theme</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+	
+	<!-- share this -->
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "b28464c3-d287-4257-ad18-058346dd35f7", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 
   <body>
+<div id="wrapper">
+    <!-- Navigation -->
 
-    <header class="site-header">
-
-  <div class="wrapper">
-
-    <a class="site-title" href="/">kuvaev.me</a>
-
-    <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
-      <div class="trigger">
-        
-          
-          <a class="page-link" href="/about/">About</a>
-          
-        
-          
-        
-          
-        
-          
-        
-      </div>
-    </nav>
-
-  </div>
-
-</header>
+    <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </div>
 
 
-    <div class="page-content">
-      <div class="wrapper">
-        <div class="home">
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading text-center">
+                        <a href="http://sciblog.yourfreebies.org/" style="color: #fff; font-size: 4em; font-family: 'Schoolbell', cursive;">Sci Blog</a>
+                        <a href="#menu-toggle" class="btn btn-default sciblog" id="menu-toggle" style="font-weight: bold;">&#9776; Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <h1 class="page-heading">Posts</h1>
+	
+    <!-- Page Content -->
+    <div class="container">
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Nov 1, 2016</span>
+        <div class="row">
 
-        <h2>
-          <a class="post-link" href="/tutorials/2016/11/01/gcd-lcm.html">Алгоритм Евклида нахождения НОД, НОК</a>
-        </h2>
-      </li>
-    
-  </ul>
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+                <!-- Blog Post -->
+                	<div class="post-list" style="list-style-type: none;">
+						 	
+							<h2>
+								<img class="title-image" src="/img/dna.png"/>
+								<a class="post-link" href="/tutorials/2016/11/01/gcd-lcm.html">Алгоритм Евклида нахождения НОД, НОК</a>
+							</h2>
+							<div class="author" style="margin-top: -10px;">Posted by
+								<i class="fa fa-user"></i><a href="http://www.airrayagroup.com/"> </a>
+								<span class="post-meta"><i class="fa fa-calendar"></i> Nov 1, 2016</span>
+							</div>
+							<div class="excerpt"><p>Пусть даны два целых числа $$x$$ и $$y$$.
+Не нарушая общности, положим, что $$x &gt; 0$$ и $$y &gt; 0$$, в противном случае заменяем отрицательное число на обратное.</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p>Число $$k$$ называют общим делителем, если $$k \mid x$$ (говорят $$k$$ делит $$x$$) и $$k \mid y$$.
+Тогда $$\exists ! g$$ - общий делитель такой, что $$\forall k$$ $$k \mid g$$, такой общий делитель $$g$$ называют наибольшим общим делителем, и обозначают $$g = НОД(x, y)$$.</p>
 
+<h2>Алгоритм Евклида для целых чисел</h2>
+
+<p>Можно предположить, что $$x &gt; y$$, в противном случае просто поменяем $$x$$ и $$y$$.
+Тогда $$x$$ можно поделить с остатком на $$y$$:</p>
+
+<p>$$
+x = y\cdot q<em>0 + r</em>1,
+$$</p>
+
+<p>$$q<em>0$$ называют неполным частным, а $$r</em>1$$ - остатком от деления, причём $$0 \leq r<em>1 &lt; y$$.
+Далее поделим с остатком $$y$$ на $$r</em>1$$:</p>
+
+<p>$$
+y = r<em>1\cdot q</em>1 + r_2,
+$$</p>
+
+<p>продолжая так далее на некотором шаге $$n$$ остаток $$r_n$$ окажется равным нулю, таким образом получаем последовательность:</p>
+
+<p>$$
+x &gt; y &gt; r<em>1 &gt; r</em>2 &gt; \dots &gt; r_{n-1} &gt; 0.
+$$</p>
+
+<p>Тогда $$НОД(x, y)$$ - наибольший общий делитель $$x$$ и $$y$$ будет равен $$r_{n-1}$$.</p>
+
+<p>Формально алгоритм будет иметь вид:</p>
+
+<p>$$
+\begin{equation<em>}
+НОД(x, y) = 
+ \begin{cases}
+   x, &amp;y = 0\
+   НОД(y, x\pmod{y}), &amp;y &gt; 0
+ \end{cases}
+\end{equation</em>}
+$$</p>
+
+<h3>Корректность</h3>
+
+<p>Пусть $$x = y\cdot q + r$$, тогда $$НОД(x, y) = НОД(y, r)$$.</p>
+
+<p>$$НОД(r, 0) = r$$, $$\forall r &gt; 0$$</p>
+
+<h3>Реализация</h3>
+
+<h4>Рекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4>Нерекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">r2</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">r2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">r1</span> <span class="o">%=</span> <span class="n">r2</span><span class="p">;</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">r1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2>НОК</h2>
+
+<p>Число $$m$$ называют общим кратным, если $$x\mid m$$ и $$y\mid m$$.</p>
+
+<p>Тогда $$\exists ! n$$ - общее кратное такое, что $$\forall m$$ $$n \mid m$$, такое общее кратное $$n$$ называют наименьшим общим кратным, и обозначают $$n = НОК(x, y)$$.</p>
+
+<p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
+
+<p>$$
+НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}
+$$</p>
+
+<h3>Реализация</h3>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="err">\</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 </div>
+							<div class="readmore" style="float: left;">
+								
+									<a href="/tutorials/2016/11/01/gcd-lcm.html">Read more</a>
+								
+							</div>								
+					</div>
+					<hr>
+						<div class="post-list" style="list-style-type: none;">			
+							 
+						</div>
+					<!-- Pagination links -->
+				<span class='st_sharethis' displayText='ShareThis'></span>
+				<span class='st_facebook' displayText='Facebook'></span>
+				<span class='st_twitter' displayText='Tweet'></span>
+				<span class='st_linkedin' displayText='LinkedIn'></span>
+				<span class='st_pinterest' displayText='Pinterest'></span>
+				<span class='st_email' displayText='Email'></span>
+					<!-- Pagination links -->
+					<div class="pagination">
+					  <ul>
+						
+						  <li><span class="disabled">Previous</span></li>
+						
 
-      </div>
-    </div>
+						
+						  <li><span class="active">1</span></li>
+						
 
-    <footer class="site-footer">
+						
 
-  <div class="wrapper">
+						
+						  <li><span class="disabled">Next</span></li>
+						
+					  </ul>
+					</div>
+            </div>
 
-    <h2 class="footer-heading">kuvaev.me</h2>
+            <!-- Widget -->
+            <div class="col-md-4">
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>kuvaev.me</li>
-          <li><a href="mailto:"></a></li>
-        </ul>
-      </div>
+                <!-- Blog Search -->
+                <div class="well">
+                    <h4>Search</h4>
+                    <div class="input-group">
+					<form action="http://www.google.com" id="cse-search-box">
+					  <div>
+					    <input type="hidden" name="cx" value="" />
+					    <input type="hidden" name="ie" value="UTF-8" />
+					    <input type="text" name="q" size="20" />
+					    <input type="submit" name="sa" value="Search" />
+					  </div>
+					</form>
+					<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+				</div>
+            </div>
+                <!-- Blog Categories -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+								
+								
+								
+								
+									<a class="bold" href="/category/tutorials">
+										tutorials (1)
+									</a>
+                        </div>
+                        <div class="col-lg-6">
+                        	
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- end -->
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          
-          <li>
-            <a href="https://github.com/Vinatorul"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
-</span><span class="username">Vinatorul</span></a>
+                <!-- Recents post -->
+                <div class="well">
+                	<h4>Recent posts</h4>
+                		<ul class="posts" span="recent">  
+							  
+							   <li>  
+								   <span>01 Nov 2016</span>
+								   <a href="/tutorials/2016/11/01/gcd-lcm.html">  
+								   Алгоритм Евклида нахождения НОД, НОК</a>  
+							   </li>  
+							  
+						</ul>
+                </div>
+                <!-- tags widget -->
+                <div class="well">
+                    <h4>Tags</h4>
+                        <ul>
+                            
+                        </ul>
+                </div>
+                <!-- author widget -->
+                <div class="well">
+                    <h4>This blog is maintained by <a href="http://webdesign.airrayagroup.com/">AIRRAYA</a></h4>
+                    <p>Get in touch with us at airrayagroup@gmail.com</p>
+					<ul class="list-inline">
+                            <li>
+								<a href="https://www.facebook.com/airrayagroup/">
+									<span class="fa-stack fa-2x">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+                            </li>
+                            <li>
+								<a href="http://webdesign.airrayagroup.com">
+									<span class="fa-stack fa-2x">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+                            </li>
+                            <li>
+								<a href="mailto:airrayagroup@gmail.com">
+									<span class="fa-stack fa-2x">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+                            </li>
+                            <li>
+								<a href="https://bitbucket.org/airrayagroup/">
+									<span class="fa-stack fa-2x">
+									  <i class="fa fa-circle fa-stack-2x"></i>
+									  <i class="fa fa-bitbucket fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+                            </li>
+                    </ul>
+                </div>
+				 <!-- subscribe -->
+                <div class="well">
+					<!-- Begin MailChimp Signup Form -->
+					<div id="mc_embed_signup">
+					<form action="http://maplelearning.us1.list-manage.com/subscribe?u=47d56ac42a95b4295600c0e64&id=5f9ede27c9" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						<div id="mc_embed_signup_scroll">
+						<h2>Subscribe to our mailing list</h2>
+					<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+					<div class="mc-field-group">
+						<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+					</label>
+						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+					</div>
+					<div class="mc-field-group">
+						<label for="mce-FNAME">First Name </label>
+						<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+					</div>
+					<div class="mc-field-group">
+						<label for="mce-LNAME">Last Name </label>
+						<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+					</div>
+						<div id="mce-responses" class="clear">
+							<div class="response" id="mce-error-response" style="display:none"></div>
+							<div class="response" id="mce-success-response" style="display:none"></div>
+						</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_47d56ac42a95b4295600c0e64_5f9ede27c9" tabindex="-1" value=""></div>
+						<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+						</div>
+					</form>
+					</div>
 
-          </li>
-          
+					<!--End mc_embed_signup-->
+				</div>
 
-          
-          <li>
-            <a href="https://twitter.com/Vinatorul"><span class="icon icon--twitter"><svg viewBox="0 0 16 16"><path fill="#828282" d="M15.969,3.058c-0.586,0.26-1.217,0.436-1.878,0.515c0.675-0.405,1.194-1.045,1.438-1.809c-0.632,0.375-1.332,0.647-2.076,0.793c-0.596-0.636-1.446-1.033-2.387-1.033c-1.806,0-3.27,1.464-3.27,3.27 c0,0.256,0.029,0.506,0.085,0.745C5.163,5.404,2.753,4.102,1.14,2.124C0.859,2.607,0.698,3.168,0.698,3.767 c0,1.134,0.577,2.135,1.455,2.722C1.616,6.472,1.112,6.325,0.671,6.08c0,0.014,0,0.027,0,0.041c0,1.584,1.127,2.906,2.623,3.206 C3.02,9.402,2.731,9.442,2.433,9.442c-0.211,0-0.416-0.021-0.615-0.059c0.416,1.299,1.624,2.245,3.055,2.271 c-1.119,0.877-2.529,1.4-4.061,1.4c-0.264,0-0.524-0.015-0.78-0.046c1.447,0.928,3.166,1.469,5.013,1.469 c6.015,0,9.304-4.983,9.304-9.304c0-0.142-0.003-0.283-0.009-0.423C14.976,4.29,15.531,3.714,15.969,3.058z"/></svg>
-</span><span class="username">Vinatorul</span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+       <hr>
+        <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Copyright &copy; 2016 Sci Blog<p>
+                </div>
+                <div class="col-lg-6">
+                    <p style="float: right;">Jekyll theme by <a href="http://webdesign.airrayagroup.com/">Airraya Group Web Design</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-          </li>
-          
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>That's something.
-</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-
-
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</div>
   </body>
-
 </html>

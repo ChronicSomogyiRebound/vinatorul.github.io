@@ -2,61 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kuvaev.me</title>
-    <description>That&#39;s something.
+    <description>That's something.
 </description>
     <link>http://kuvaev.me/</link>
     <atom:link href="http://kuvaev.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Nov 2016 20:56:17 +0000</pubDate>
-    <lastBuildDate>Tue, 01 Nov 2016 20:56:17 +0000</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Wed, 02 Nov 2016 07:57:13 +0000</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2016 07:57:13 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.0</generator>
     
       <item>
         <title>Алгоритм Евклида нахождения НОД, НОК</title>
-        <description>&lt;p&gt;Пусть даны два целых числа &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;.
-Не нарушая общности, положим, что &lt;script type=&quot;math/tex&quot;&gt;x &gt; 0&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y &gt; 0&lt;/script&gt;, в противном случае заменяем отрицательное число на обратное.&lt;/p&gt;
+        <description>&lt;p&gt;Пусть даны два целых числа $$x$$ и $$y$$.
+Не нарушая общности, положим, что $$x &amp;gt; 0$$ и $$y &amp;gt; 0$$, в противном случае заменяем отрицательное число на обратное.&lt;/p&gt;
 
-&lt;p&gt;Число &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; называют общим делителем, если &lt;script type=&quot;math/tex&quot;&gt;k \mid x&lt;/script&gt; (говорят &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; делит &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;) и &lt;script type=&quot;math/tex&quot;&gt;k \mid y&lt;/script&gt;.
-Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! g&lt;/script&gt; - общий делитель такой, что &lt;script type=&quot;math/tex&quot;&gt;\forall k&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;g \mid k&lt;/script&gt;, такой общий делитель &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt; называют наибольшим общим делителем, и обозначают &lt;script type=&quot;math/tex&quot;&gt;g = НОД(x, y)&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Число $$k$$ называют общим делителем, если $$k \mid x$$ (говорят $$k$$ делит $$x$$) и $$k \mid y$$.
+Тогда $$\exists ! g$$ - общий делитель такой, что $$\forall k$$ $$k \mid g$$, такой общий делитель $$g$$ называют наибольшим общим делителем, и обозначают $$g = НОД(x, y)$$.&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;Алгоритм Евклида для целых чисел&lt;/h2&gt;
+&lt;h2&gt;Алгоритм Евклида для целых чисел&lt;/h2&gt;
 
-&lt;p&gt;Можно предположить, что &lt;script type=&quot;math/tex&quot;&gt;x &gt; y&lt;/script&gt;, в противном случае просто поменяем &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;.
-Тогда &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; можно поделить с остатком на &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;:&lt;/p&gt;
+&lt;p&gt;Можно предположить, что $$x &amp;gt; y$$, в противном случае просто поменяем $$x$$ и $$y$$.
+Тогда $$x$$ можно поделить с остатком на $$y$$:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;x = y\cdot q_0 + r_1,&lt;/script&gt;
+&lt;p&gt;$$
+x = y\cdot q&lt;em&gt;0 + r&lt;/em&gt;1,
+$$&lt;/p&gt;
 
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;q_0&lt;/script&gt; называют неполным частным, а &lt;script type=&quot;math/tex&quot;&gt;r_1&lt;/script&gt; - остатком от деления, причём &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
-0 \leq r_1 &lt; y %]]&gt;&lt;/script&gt;.
-Далее поделим с остатком &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; на &lt;script type=&quot;math/tex&quot;&gt;r_1&lt;/script&gt;:&lt;/p&gt;
+&lt;p&gt;$$q&lt;em&gt;0$$ называют неполным частным, а $$r&lt;/em&gt;1$$ - остатком от деления, причём $$0 \leq r&lt;em&gt;1 &amp;lt; y$$.
+Далее поделим с остатком $$y$$ на $$r&lt;/em&gt;1$$:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;y = r_1\cdot q_1 + r_2,&lt;/script&gt;
+&lt;p&gt;$$
+y = r&lt;em&gt;1\cdot q&lt;/em&gt;1 + r_2,
+$$&lt;/p&gt;
 
-&lt;p&gt;продолжая так далее на некотором шаге &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; остаток &lt;script type=&quot;math/tex&quot;&gt;r_n&lt;/script&gt; окажется равным нулю, таким образом получаем последовательность:&lt;/p&gt;
+&lt;p&gt;продолжая так далее на некотором шаге $$n$$ остаток $$r_n$$ окажется равным нулю, таким образом получаем последовательность:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;x &gt; y &gt; r_1 &gt; r_2 &gt; \dots &gt; r_{n-1} &gt; 0.&lt;/script&gt;
+&lt;p&gt;$$
+x &amp;gt; y &amp;gt; r&lt;em&gt;1 &amp;gt; r&lt;/em&gt;2 &amp;gt; \dots &amp;gt; r_{n-1} &amp;gt; 0.
+$$&lt;/p&gt;
 
-&lt;p&gt;Тогда &lt;script type=&quot;math/tex&quot;&gt;НОД(x, y)&lt;/script&gt; - наибольший общий делитель &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; будет равен &lt;script type=&quot;math/tex&quot;&gt;r_{n-1}&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Тогда $$НОД(x, y)$$ - наибольший общий делитель $$x$$ и $$y$$ будет равен $$r_{n-1}$$.&lt;/p&gt;
 
 &lt;p&gt;Формально алгоритм будет иметь вид:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
-\begin{equation*}
+&lt;p&gt;$$
+\begin{equation&lt;em&gt;}
 НОД(x, y) = 
  \begin{cases}
-   x, &amp;y = 0\\
-   НОД(y, x\pmod{y}), &amp;y &gt; 0
+   x, &amp;amp;y = 0\
+   НОД(y, x\pmod{y}), &amp;amp;y &amp;gt; 0
  \end{cases}
-\end{equation*} %]]&gt;&lt;/script&gt;
+\end{equation&lt;/em&gt;}
+$$&lt;/p&gt;
 
-&lt;h3 id=&quot;section-1&quot;&gt;Корректность&lt;/h3&gt;
+&lt;h3&gt;Корректность&lt;/h3&gt;
 
-&lt;p&gt;Пусть &lt;script type=&quot;math/tex&quot;&gt;x = y\cdot q + r&lt;/script&gt;, тогда &lt;script type=&quot;math/tex&quot;&gt;НОД(x, y) = НОД(y, r)&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Пусть $$x = y\cdot q + r$$, тогда $$НОД(x, y) = НОД(y, r)$$.&lt;/p&gt;
 
-&lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;НОД(r, 0) = r&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\forall r &gt; 0&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;$$НОД(r, 0) = r$$, $$\forall r &amp;gt; 0$$&lt;/p&gt;
 
-&lt;h3 id=&quot;section-2&quot;&gt;Реализация&lt;/h3&gt;
+&lt;h3&gt;Реализация&lt;/h3&gt;
 
-&lt;h4 id=&quot;section-3&quot;&gt;Рекурсивная&lt;/h4&gt;
+&lt;h4&gt;Рекурсивная&lt;/h4&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -64,7 +70,7 @@
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h4 id=&quot;section-4&quot;&gt;Нерекурсивная&lt;/h4&gt;
+&lt;h4&gt;Нерекурсивная&lt;/h4&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
@@ -75,22 +81,23 @@
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;section-5&quot;&gt;НОК&lt;/h2&gt;
+&lt;h2&gt;НОК&lt;/h2&gt;
 
-&lt;p&gt;Число &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; называют общим кратным, если &lt;script type=&quot;math/tex&quot;&gt;x\mid m&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y\mid m&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Число $$m$$ называют общим кратным, если $$x\mid m$$ и $$y\mid m$$.&lt;/p&gt;
 
-&lt;p&gt;Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! n&lt;/script&gt; - общее кратное такое, что &lt;script type=&quot;math/tex&quot;&gt;\forall m&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;m \mid n&lt;/script&gt;, такое общее кратное &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; называют наименьшим общим кратным, и обозначают &lt;script type=&quot;math/tex&quot;&gt;n = НОК(x, y)&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Тогда $$\exists ! n$$ - общее кратное такое, что $$\forall m$$ $$n \mid m$$, такое общее кратное $$n$$ называют наименьшим общим кратным, и обозначают $$n = НОК(x, y)$$.&lt;/p&gt;
 
 &lt;p&gt;Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:&lt;/p&gt;
 
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}&lt;/script&gt;
+&lt;p&gt;$$
+НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}
+$$&lt;/p&gt;
 
-&lt;h3 id=&quot;section-6&quot;&gt;Реализация&lt;/h3&gt;
+&lt;h3&gt;Реализация&lt;/h3&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LCM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
 </description>
         <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
         <link>http://kuvaev.me/tutorials/2016/11/01/gcd-lcm.html</link>
