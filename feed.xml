@@ -6,8 +6,8 @@
 </description>
     <link>http://kuvaev.me/</link>
     <atom:link href="http://kuvaev.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 02 Nov 2016 20:25:24 +0000</pubDate>
-    <lastBuildDate>Wed, 02 Nov 2016 20:25:24 +0000</lastBuildDate>
+    <pubDate>Wed, 02 Nov 2016 20:59:55 +0000</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2016 20:59:55 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -92,11 +92,21 @@
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h2 id=&quot;section-7&quot;&gt;Практика&lt;/h2&gt;
+&lt;h3 id=&quot;section-7&quot;&gt;Практика&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147#1&quot;&gt;НОД&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422#1&quot;&gt;НОК&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;НОД:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/moodle/mod/statements/view3.php?chapterid=111234&quot;&gt;mccme 111234&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147&quot;&gt;mccme 147&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;НОК:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=146&quot;&gt;mccme 146&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422&quot;&gt;mccme 1422&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
