@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sci blog jekyll theme">
+    <meta name="author" content="AIR RAYA Group">
+    <link href='/img/favicon.ico' type='image/icon' rel='shortcut icon'/>
+
+    <title>kuvaev.me</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+	
+	<!-- share this -->
+	<script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript">stLight.options({publisher: "b28464c3-d287-4257-ad18-058346dd35f7", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+ <body>
+<div id="wrapper">
+ <!-- Navigation -->
+
+    <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="http://kuvaev.me/">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </div>
+
+
+    <header class="intro-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="heading text-center">
+                        <a href="http://kuvaev.me/" style="color: #fff; font-size: 4em; font-family: 'Schoolbell', cursive;">kuvaev.me</a>
+                        <a href="#menu-toggle" class="btn btn-default sciblog" id="menu-toggle" style="font-weight: bold;">&#9776; Menu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+ <div class="container">
+    <div class="row">
+        <div class="box">
+                <div class="col-lg-12">
+                    <div class="intro-text text-center">
+                    <h1 class="post-title" itemprop="name headline">Алгоритм Евклида нахождения НОД, НОК</h1>
+                    <p class="post-meta"> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 1, 2016</time></p>
+                    </div>
+                     <p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Не нарушая общности, положим, что <script type="math/tex">x > 0</script> и <script type="math/tex">y > 0</script>, в противном случае заменяем отрицательное число на обратное.</p>
+
+<p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
+Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.
+<!-- more --></p>
+<h2 id="section">Алгоритм Евклида для целых чисел</h2>
+
+<p>Можно предположить, что <script type="math/tex">x > y</script>, в противном случае просто поменяем <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Тогда <script type="math/tex">x</script> можно поделить с остатком на <script type="math/tex">y</script>:</p>
+
+<script type="math/tex; mode=display">x = y\cdot q_0 + r_1,</script>
+
+<p><script type="math/tex">q_0</script> называют неполным частным, а <script type="math/tex">r_1</script> - остатком от деления, причём <script type="math/tex">% <![CDATA[
+0 \leq r_1 < y %]]></script>.
+Далее поделим с остатком <script type="math/tex">y</script> на <script type="math/tex">r_1</script>:</p>
+
+<script type="math/tex; mode=display">y = r_1\cdot q_1 + r_2,</script>
+
+<p>продолжая так далее на некотором шаге <script type="math/tex">n</script> остаток <script type="math/tex">r_n</script> окажется равным нулю, таким образом получаем последовательность:</p>
+
+<script type="math/tex; mode=display">x > y > r_1 > r_2 > \dots > r_{n-1} > 0.</script>
+
+<p>Тогда <script type="math/tex">НОД(x, y)</script> - наибольший общий делитель <script type="math/tex">x</script> и <script type="math/tex">y</script> будет равен <script type="math/tex">r_{n-1}</script>.</p>
+
+<p>Формально алгоритм будет иметь вид:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation*}
+НОД(x, y) = 
+ \begin{cases}
+   x, &y = 0\\
+   НОД(y, x\pmod{y}), &y > 0
+ \end{cases}
+\end{equation*} %]]></script>
+
+<h3 id="section-1">Корректность</h3>
+
+<p>Пусть <script type="math/tex">x = y\cdot q + r</script>, тогда <script type="math/tex">НОД(x, y) = НОД(y, r)</script>.</p>
+
+<p><script type="math/tex">НОД(r, 0) = r</script>, <script type="math/tex">\forall r > 0</script></p>
+
+<h3 id="section-2">Реализация</h3>
+
+<h4 id="section-3">Рекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="section-4">Нерекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">r2</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">r2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">r1</span> <span class="o">%=</span> <span class="n">r2</span><span class="p">;</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">r1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="section-5">НОК</h2>
+
+<p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
+
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid m</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
+
+<p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
+
+<script type="math/tex; mode=display">НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}</script>
+
+<h3 id="section-6">Реализация</h3>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="err">\</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="section-7">Практика</h2>
+
+<ul>
+  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147#1">НОД</a></li>
+  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422#1">НОК</a></li>
+</ul>
+
+
+                </div>
+                Category tutorial, arithmetic
+        </div>
+    </div>
+  
+      
+        <div class="row">
+            <div class="col-md-12">
+                <div id="disqus_thread"></div>
+                <script>
+
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//http-kuvaev-me.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+            </div>
+       </div>
+
+</div>
+<hr>
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Copyright &copy; 2016 Alexander Kuavev<p>
+                </div>
+                <div class="col-lg-6">
+                    <p style="float: right;">Jekyll theme by <a href="http://webdesign.airrayagroup.com/">Airraya Group Web Design</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+	
+    <!-- jQuery -->
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</div>
+  </body>
+
+</html>
