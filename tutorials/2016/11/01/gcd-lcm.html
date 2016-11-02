@@ -81,57 +81,51 @@
 					<h1 class="post-title" itemprop="name headline">Алгоритм Евклида нахождения НОД, НОК</h1>
 					<p class="post-meta"> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 1, 2016</time></p>
 					</div>
-					 <p>Пусть даны два целых числа $$x$$ и $$y$$.
-Не нарушая общности, положим, что $$x &gt; 0$$ и $$y &gt; 0$$, в противном случае заменяем отрицательное число на обратное.</p>
+					 <p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Не нарушая общности, положим, что <script type="math/tex">x > 0</script> и <script type="math/tex">y > 0</script>, в противном случае заменяем отрицательное число на обратное.</p>
 
-<p>Число $$k$$ называют общим делителем, если $$k \mid x$$ (говорят $$k$$ делит $$x$$) и $$k \mid y$$.
-Тогда $$\exists ! g$$ - общий делитель такой, что $$\forall k$$ $$k \mid g$$, такой общий делитель $$g$$ называют наибольшим общим делителем, и обозначают $$g = НОД(x, y)$$.</p>
+<p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
+Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.</p>
 
-<h2>Алгоритм Евклида для целых чисел</h2>
+<h2 id="section">Алгоритм Евклида для целых чисел</h2>
 
-<p>Можно предположить, что $$x &gt; y$$, в противном случае просто поменяем $$x$$ и $$y$$.
-Тогда $$x$$ можно поделить с остатком на $$y$$:</p>
+<p>Можно предположить, что <script type="math/tex">x > y</script>, в противном случае просто поменяем <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Тогда <script type="math/tex">x</script> можно поделить с остатком на <script type="math/tex">y</script>:</p>
 
-<p>$$
-x = y\cdot q<em>0 + r</em>1,
-$$</p>
+<script type="math/tex; mode=display">x = y\cdot q_0 + r_1,</script>
 
-<p>$$q<em>0$$ называют неполным частным, а $$r</em>1$$ - остатком от деления, причём $$0 \leq r<em>1 &lt; y$$.
-Далее поделим с остатком $$y$$ на $$r</em>1$$:</p>
+<p><script type="math/tex">q_0</script> называют неполным частным, а <script type="math/tex">r_1</script> - остатком от деления, причём <script type="math/tex">% <![CDATA[
+0 \leq r_1 < y %]]></script>.
+Далее поделим с остатком <script type="math/tex">y</script> на <script type="math/tex">r_1</script>:</p>
 
-<p>$$
-y = r<em>1\cdot q</em>1 + r_2,
-$$</p>
+<script type="math/tex; mode=display">y = r_1\cdot q_1 + r_2,</script>
 
-<p>продолжая так далее на некотором шаге $$n$$ остаток $$r_n$$ окажется равным нулю, таким образом получаем последовательность:</p>
+<p>продолжая так далее на некотором шаге <script type="math/tex">n</script> остаток <script type="math/tex">r_n</script> окажется равным нулю, таким образом получаем последовательность:</p>
 
-<p>$$
-x &gt; y &gt; r<em>1 &gt; r</em>2 &gt; \dots &gt; r_{n-1} &gt; 0.
-$$</p>
+<script type="math/tex; mode=display">x > y > r_1 > r_2 > \dots > r_{n-1} > 0.</script>
 
-<p>Тогда $$НОД(x, y)$$ - наибольший общий делитель $$x$$ и $$y$$ будет равен $$r_{n-1}$$.</p>
+<p>Тогда <script type="math/tex">НОД(x, y)</script> - наибольший общий делитель <script type="math/tex">x</script> и <script type="math/tex">y</script> будет равен <script type="math/tex">r_{n-1}</script>.</p>
 
 <p>Формально алгоритм будет иметь вид:</p>
 
-<p>$$
-\begin{equation<em>}
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation*}
 НОД(x, y) = 
  \begin{cases}
-   x, &amp;y = 0\
-   НОД(y, x\pmod{y}), &amp;y &gt; 0
+   x, &y = 0\\
+   НОД(y, x\pmod{y}), &y > 0
  \end{cases}
-\end{equation</em>}
-$$</p>
+\end{equation*} %]]></script>
 
-<h3>Корректность</h3>
+<h3 id="section-1">Корректность</h3>
 
-<p>Пусть $$x = y\cdot q + r$$, тогда $$НОД(x, y) = НОД(y, r)$$.</p>
+<p>Пусть <script type="math/tex">x = y\cdot q + r</script>, тогда <script type="math/tex">НОД(x, y) = НОД(y, r)</script>.</p>
 
-<p>$$НОД(r, 0) = r$$, $$\forall r &gt; 0$$</p>
+<p><script type="math/tex">НОД(r, 0) = r</script>, <script type="math/tex">\forall r > 0</script></p>
 
-<h3>Реализация</h3>
+<h3 id="section-2">Реализация</h3>
 
-<h4>Рекурсивная</h4>
+<h4 id="section-3">Рекурсивная</h4>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
@@ -139,7 +133,7 @@ $$</p>
     <span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">);</span>
 <span class="p">}</span></code></pre></figure>
 
-<h4>Нерекурсивная</h4>
+<h4 id="section-4">Нерекурсивная</h4>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">r1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">r2</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
@@ -150,23 +144,22 @@ $$</p>
     <span class="k">return</span> <span class="n">r1</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<h2>НОК</h2>
+<h2 id="section-5">НОК</h2>
 
-<p>Число $$m$$ называют общим кратным, если $$x\mid m$$ и $$y\mid m$$.</p>
+<p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
 
-<p>Тогда $$\exists ! n$$ - общее кратное такое, что $$\forall m$$ $$n \mid m$$, такое общее кратное $$n$$ называют наименьшим общим кратным, и обозначают $$n = НОК(x, y)$$.</p>
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid m</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
 
 <p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
 
-<p>$$
-НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}
-$$</p>
+<script type="math/tex; mode=display">НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}</script>
 
-<h3>Реализация</h3>
+<h3 id="section-6">Реализация</h3>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">x</span><span class="err">\</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
+
 
 					 <span class='st_sharethis_large' displayText='ShareThis'></span>
 						<span class='st_facebook_large' displayText='Facebook'></span>
@@ -181,31 +174,29 @@ $$</p>
   
       
         <div class="row">
-                <div class="col-md-12">
-			<div id="disqus_thread"></div>
-			<script>
-			/**
-			* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-			* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-			*/
-			/*
-			var disqus_config = function () {
-			this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
-			this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-			};
-			*/
-			(function() { // DON'T EDIT BELOW THIS LINE
-			var d = document, s = d.createElement('script');
+            <div class="col-md-12">
+                <div id="disqus_thread"></div>
+                <script>
 
-			s.src = '//airrayagroup.disqus.com/embed.js';
-
-			s.setAttribute('data-timestamp', +new Date());
-			(d.head || d.body).appendChild(s);
-			})();
-			</script>
-			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-			<script id="dsq-count-scr" src="//airrayagroup.disqus.com/count.js" async></script>
-          </div>
+                /**
+                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+                /*
+                var disqus_config = function () {
+                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                };
+                */
+                (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = '//http-kuvaev-me.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+            </div>
        </div>
 
 </div>
