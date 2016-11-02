@@ -6,8 +6,8 @@
 </description>
     <link>http://kuvaev.me/</link>
     <atom:link href="http://kuvaev.me/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 02 Nov 2016 09:50:49 +0000</pubDate>
-    <lastBuildDate>Wed, 02 Nov 2016 09:50:49 +0000</lastBuildDate>
+    <pubDate>Wed, 02 Nov 2016 18:15:19 +0000</pubDate>
+    <lastBuildDate>Wed, 02 Nov 2016 18:15:19 +0000</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -16,8 +16,8 @@
 Не нарушая общности, положим, что &lt;script type=&quot;math/tex&quot;&gt;x &gt; 0&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y &gt; 0&lt;/script&gt;, в противном случае заменяем отрицательное число на обратное.&lt;/p&gt;
 
 &lt;p&gt;Число &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; называют общим делителем, если &lt;script type=&quot;math/tex&quot;&gt;k \mid x&lt;/script&gt; (говорят &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt; делит &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;) и &lt;script type=&quot;math/tex&quot;&gt;k \mid y&lt;/script&gt;.
-Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! g&lt;/script&gt; - общий делитель такой, что &lt;script type=&quot;math/tex&quot;&gt;\forall k&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;k \mid g&lt;/script&gt;, такой общий делитель &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt; называют наибольшим общим делителем, и обозначают &lt;script type=&quot;math/tex&quot;&gt;g = НОД(x, y)&lt;/script&gt;.
-&lt;!-- more --&gt;&lt;/p&gt;
+Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! g&lt;/script&gt; - общий делитель такой, что &lt;script type=&quot;math/tex&quot;&gt;\forall k&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;k \mid g&lt;/script&gt;, такой общий делитель &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt; называют наибольшим общим делителем, и обозначают &lt;script type=&quot;math/tex&quot;&gt;g = НОД(x, y)&lt;/script&gt;.&lt;/p&gt;
+
 &lt;h2 id=&quot;section&quot;&gt;Алгоритм Евклида для целых чисел&lt;/h2&gt;
 
 &lt;p&gt;Можно предположить, что &lt;script type=&quot;math/tex&quot;&gt;x &gt; y&lt;/script&gt;, в противном случае просто поменяем &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;.
@@ -79,7 +79,7 @@
 
 &lt;p&gt;Число &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; называют общим кратным, если &lt;script type=&quot;math/tex&quot;&gt;x\mid m&lt;/script&gt; и &lt;script type=&quot;math/tex&quot;&gt;y\mid m&lt;/script&gt;.&lt;/p&gt;
 
-&lt;p&gt;Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! n&lt;/script&gt; - общее кратное такое, что &lt;script type=&quot;math/tex&quot;&gt;\forall m&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;n \mid m&lt;/script&gt;, такое общее кратное &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; называют наименьшим общим кратным, и обозначают &lt;script type=&quot;math/tex&quot;&gt;n = НОК(x, y)&lt;/script&gt;.&lt;/p&gt;
+&lt;p&gt;Тогда &lt;script type=&quot;math/tex&quot;&gt;\exists ! n&lt;/script&gt; - общее кратное такое, что &lt;script type=&quot;math/tex&quot;&gt;\forall m&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;n \mid n&lt;/script&gt;, такое общее кратное &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; называют наименьшим общим кратным, и обозначают &lt;script type=&quot;math/tex&quot;&gt;n = НОК(x, y)&lt;/script&gt;.&lt;/p&gt;
 
 &lt;p&gt;Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:&lt;/p&gt;
 
@@ -88,33 +88,16 @@
 &lt;h3 id=&quot;section-6&quot;&gt;Реализация&lt;/h3&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-cpp&quot; data-lang=&quot;cpp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LCM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GCD&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;section-7&quot;&gt;Практика&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147#1&quot;&gt;НОД&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422#1&quot;&gt;НОК&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 
 </description>
         <pubDate>Tue, 01 Nov 2016 00:00:00 +0000</pubDate>
-        <link>http://kuvaev.me/tutorial/arithmetic/2016/11/01/gcd-lcm.html</link>
-        <guid isPermaLink="true">http://kuvaev.me/tutorial/arithmetic/2016/11/01/gcd-lcm.html</guid>
-        
-        <category>easy</category>
-        
-        <category>gcd</category>
-        
-        <category>lcm</category>
-        
-        <category>arithmetic</category>
+        <link>http://kuvaev.me/tutorials/2016/11/01/gcd-lcm.html</link>
+        <guid isPermaLink="true">http://kuvaev.me/tutorials/2016/11/01/gcd-lcm.html</guid>
         
         
-        <category>tutorial</category>
-        
-        <category>arithmetic</category>
+        <category>tutorials</category>
         
       </item>
     

@@ -19,13 +19,7 @@
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
     <link href="/css/style.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css">
 	
 	<!-- share this -->
 	<script type="text/javascript">var switchTo5x=true;</script>
@@ -80,14 +74,14 @@
                 <div class="col-lg-12">
                     <div class="intro-text text-center">
                     <h1 class="post-title" itemprop="name headline">Алгоритм Евклида нахождения НОД, НОК</h1>
-                    <p class="post-meta"> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">by Alexander Kuvaev</span></span> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 1, 2016</time></p>
+                    <p class="post-meta"> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 1, 2016</time></p>
                     </div>
                      <p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
 Не нарушая общности, положим, что <script type="math/tex">x > 0</script> и <script type="math/tex">y > 0</script>, в противном случае заменяем отрицательное число на обратное.</p>
 
 <p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
-Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.
-<!-- more --></p>
+Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.</p>
+
 <h2 id="section">Алгоритм Евклида для целых чисел</h2>
 
 <p>Можно предположить, что <script type="math/tex">x > y</script>, в противном случае просто поменяем <script type="math/tex">x</script> и <script type="math/tex">y</script>.
@@ -149,7 +143,7 @@
 
 <p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
 
-<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid m</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid n</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
 
 <p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
 
@@ -158,19 +152,12 @@
 <h3 id="section-6">Реализация</h3>
 
 <figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span><span class="err">\</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
-
-<h2 id="section-7">Практика</h2>
-
-<ul>
-  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147#1">НОД</a></li>
-  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422#1">НОК</a></li>
-</ul>
 
 
                 </div>
-                Category tutorial, arithmetic
+                Category tutorials
         </div>
     </div>
   

@@ -19,13 +19,7 @@
 	<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
     <!-- Custom CSS -->
     <link href="/css/style.css" rel="stylesheet">
-
-    <!-- Fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Schoolbell' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/main.css">
 	
 	<!-- share this -->
 	<script type="text/javascript">var switchTo5x=true;</script>
@@ -87,10 +81,10 @@
                     <div class="post-list" style="list-style-type: none;">
                            
                             <h2>
-                                <a class="post-link" href="/tutorial/arithmetic/2016/11/01/gcd-lcm.html">Алгоритм Евклида нахождения НОД, НОК</a>
+                                <a class="post-link" href="/tutorials/2016/11/01/gcd-lcm.html">Алгоритм Евклида нахождения НОД, НОК</a>
                             </h2>
                             <div class="author" style="margin-top: -10px;">Posted by
-                                <i class="fa fa-user"></i><a href="https://github.com/Vinatorul"> Alexander Kuvaev</a>
+                                <i class="fa fa-user"></i><a href="https://github.com/Vinatorul"> </a>
                                 <span class="post-meta"><i class="fa fa-calendar"></i> Nov 1, 2016</span>
                             </div>
                             <div class="excerpt"><p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
@@ -99,10 +93,83 @@
 <p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
 Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.</p>
 
+<h2 id="section">Алгоритм Евклида для целых чисел</h2>
+
+<p>Можно предположить, что <script type="math/tex">x > y</script>, в противном случае просто поменяем <script type="math/tex">x</script> и <script type="math/tex">y</script>.
+Тогда <script type="math/tex">x</script> можно поделить с остатком на <script type="math/tex">y</script>:</p>
+
+<script type="math/tex; mode=display">x = y\cdot q_0 + r_1,</script>
+
+<p><script type="math/tex">q_0</script> называют неполным частным, а <script type="math/tex">r_1</script> - остатком от деления, причём <script type="math/tex">% <![CDATA[
+0 \leq r_1 < y %]]></script>.
+Далее поделим с остатком <script type="math/tex">y</script> на <script type="math/tex">r_1</script>:</p>
+
+<script type="math/tex; mode=display">y = r_1\cdot q_1 + r_2,</script>
+
+<p>продолжая так далее на некотором шаге <script type="math/tex">n</script> остаток <script type="math/tex">r_n</script> окажется равным нулю, таким образом получаем последовательность:</p>
+
+<script type="math/tex; mode=display">x > y > r_1 > r_2 > \dots > r_{n-1} > 0.</script>
+
+<p>Тогда <script type="math/tex">НОД(x, y)</script> - наибольший общий делитель <script type="math/tex">x</script> и <script type="math/tex">y</script> будет равен <script type="math/tex">r_{n-1}</script>.</p>
+
+<p>Формально алгоритм будет иметь вид:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation*}
+НОД(x, y) = 
+ \begin{cases}
+   x, &y = 0\\
+   НОД(y, x\pmod{y}), &y > 0
+ \end{cases}
+\end{equation*} %]]></script>
+
+<h3 id="section-1">Корректность</h3>
+
+<p>Пусть <script type="math/tex">x = y\cdot q + r</script>, тогда <script type="math/tex">НОД(x, y) = НОД(y, r)</script>.</p>
+
+<p><script type="math/tex">НОД(r, 0) = r</script>, <script type="math/tex">\forall r > 0</script></p>
+
+<h3 id="section-2">Реализация</h3>
+
+<h4 id="section-3">Рекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">GCD</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="o">%</span><span class="n">y</span><span class="p">);</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="section-4">Нерекурсивная</h4>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">GCD</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">r1</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">r2</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">r2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">r1</span> <span class="o">%=</span> <span class="n">r2</span><span class="p">;</span>
+        <span class="n">swap</span><span class="p">(</span><span class="n">r1</span><span class="p">,</span> <span class="n">r2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">r1</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h2 id="section-5">НОК</h2>
+
+<p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
+
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid n</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
+
+<p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
+
+<script type="math/tex; mode=display">НОК(x, y) = \frac{x\cdot y}{НОД(x, y)}</script>
+
+<h3 id="section-6">Реализация</h3>
+
+<figure class="highlight"><pre><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">LCM</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
 </div>
                             <div class="readmore" style="float: left;">
                                 
-                                    <a href="/tutorial/arithmetic/2016/11/01/gcd-lcm.html">Read more</a>
+                                    <a href="/tutorials/2016/11/01/gcd-lcm.html">Read more</a>
                                 
                             </div>                              
                     </div>
@@ -158,17 +225,8 @@
                                 
                                 
                                 
-                                    <a class="bold" href="/category/tutorial">
-                                        tutorial (1)
-                                    </a>
-                        </div>
-                        <div class="col-lg-6">
-                            
-                                
-                                
-                                
-                                    <a class="bold" href="/category/arithmetic">
-                                        arithmetic (1)
+                                    <a class="bold" href="/category/tutorials">
+                                        tutorials (1)
                                     </a>
                         </div>
                         <div class="col-lg-6">
@@ -186,7 +244,7 @@
                               
                                <li>  
                                    <span>01 Nov 2016</span>
-                                   <a href="/tutorial/arithmetic/2016/11/01/gcd-lcm.html">  
+                                   <a href="/tutorials/2016/11/01/gcd-lcm.html">  
                                    Алгоритм Евклида нахождения НОД, НОК</a>  
                                </li>  
                               
@@ -196,34 +254,6 @@
                 <div class="well">
                     <h4>Tags</h4>
                         <ul>
-                            
-                            
-                            
-                            
-                                <a class="tag-label bold" href="/tag/easy">
-                                    easy (1)
-                                </a>
-                            
-                            
-                            
-                            
-                                <a class="tag-label bold" href="/tag/gcd">
-                                    gcd (1)
-                                </a>
-                            
-                            
-                            
-                            
-                                <a class="tag-label bold" href="/tag/lcm">
-                                    lcm (1)
-                                </a>
-                            
-                            
-                            
-                            
-                                <a class="tag-label bold" href="/tag/arithmetic">
-                                    arithmetic (1)
-                                </a>
                             
                         </ul>
                 </div>             
