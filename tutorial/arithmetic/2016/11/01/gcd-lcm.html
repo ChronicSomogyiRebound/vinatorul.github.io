@@ -61,7 +61,6 @@
                 <div class="col-lg-12">
                     <div class="heading text-center">
                         <a href="http://kuvaev.me/" style="color: #fff; font-size: 4em;">kuvaev.me</a>
-                        <a href="#menu-toggle" class="btn btn-default sciblog" id="menu-toggle" style="font-weight: bold;">&#9776; Menu</a>
                     </div>
                 </div>
             </div>
@@ -74,13 +73,14 @@
                 <div class="col-lg-12">
                     <div class="intro-text text-center">
                     <h1 class="post-title" itemprop="name headline">Алгоритм Евклида нахождения НОД, НОК</h1>
-                    <p class="post-meta"> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Nov 1, 2016</time></p>
+                    <p class="post-meta"> <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">by Alexander Kuvaev</span></span> <time datetime="2016-11-01T00:00:00+00:00" itemprop="datePublished"> Nov 1, 2016</time></p>
                     </div>
                      <p>Пусть даны два целых числа <script type="math/tex">x</script> и <script type="math/tex">y</script>.
 Не нарушая общности, положим, что <script type="math/tex">x > 0</script> и <script type="math/tex">y > 0</script>, в противном случае заменяем отрицательное число на обратное.</p>
 
 <p>Число <script type="math/tex">k</script> называют общим делителем, если <script type="math/tex">k \mid x</script> (говорят <script type="math/tex">k</script> делит <script type="math/tex">x</script>) и <script type="math/tex">k \mid y</script>.
-Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.</p>
+Тогда <script type="math/tex">\exists ! g</script> - общий делитель такой, что <script type="math/tex">\forall k</script> <script type="math/tex">k \mid g</script>, такой общий делитель <script type="math/tex">g</script> называют наибольшим общим делителем, и обозначают <script type="math/tex">g = НОД(x, y)</script>.
+<!-- more --></p>
 
 <h2 id="section">Алгоритм Евклида для целых чисел</h2>
 
@@ -143,7 +143,7 @@
 
 <p>Число <script type="math/tex">m</script> называют общим кратным, если <script type="math/tex">x\mid m</script> и <script type="math/tex">y\mid m</script>.</p>
 
-<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid n</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
+<p>Тогда <script type="math/tex">\exists ! n</script> - общее кратное такое, что <script type="math/tex">\forall m</script> <script type="math/tex">n \mid m</script>, такое общее кратное <script type="math/tex">n</script> называют наименьшим общим кратным, и обозначают <script type="math/tex">n = НОК(x, y)</script>.</p>
 
 <p>Вычисление наименьшего общего кратного сводится к вычислению наибольшего общего делителя:</p>
 
@@ -155,9 +155,15 @@
     <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="n">GCD</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
+<h2 id="section-7">Практика</h2>
+
+<ul>
+  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=147#1">НОД</a></li>
+  <li><a href="http://informatics.mccme.ru/mod/statements/view3.php?chapterid=1422#1">НОК</a></li>
+</ul>
 
                 </div>
-                Category tutorials
+                <p>Category tutorial, arithmetic</p>
         </div>
     </div>
   
